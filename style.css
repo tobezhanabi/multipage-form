@@ -1,0 +1,174 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+  background-color: hsl(229, 24%, 87%);
+  font-family: "Ubuntu", sans-serif;
+}
+
+main {
+  display: flex;
+  height: 588px;
+  width: 900px;
+  position: relative;
+  background-color: white;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+nav {
+  background-image: url(./assets/images/bg-sidebar-desktop.svg);
+  background-repeat: no-repeat;
+  margin: 10px 0px 10px 10px;
+  width: 341px;
+  height: 568px;
+  color: white;
+  padding: 10px;
+}
+.circle {
+  margin-right: 20px;
+  border: 2px solid white;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.step + .circle:hover {
+  background-color: hsl(206, 94%, 87%);
+  color: black;
+}
+.step {
+  display: flex;
+  margin: 40px;
+  cursor: pointer;
+}
+fieldset {
+  border: none;
+  margin: 30px;
+  margin-top: 60px;
+}
+fieldset h1 {
+  color: hsl(213, 96%, 18%);
+  font-size: 30px;
+}
+fieldset p {
+  color: hsl(231, 11%, 63%);
+}
+form {
+  display: flex;
+  font-family: "Ubuntu", sans-serif;
+  color: hsl(213, 96%, 18%);
+  flex-direction: column;
+  margin-top: 20px;
+  border-radius: 5px;
+
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+label {
+  display: block;
+  padding: 10px 0;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+input {
+  padding: 15px;
+  font-family: "Ubuntu", sans-serif;
+  border: 1px solid hsl(229, 24%, 87%);
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+input:focus {
+  border-color: hsl(243, 100%, 62%) !important;
+}
+
+#next {
+  font-family: "Ubuntu", sans-serif;
+  position: absolute;
+  padding: 10px 20px;
+  bottom: 15%;
+  right: 8.59%;
+  background-color: hsl(213, 96%, 18%);
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.next:hover {
+  opacity: 0.87;
+}
+
+/* step 2 */
+
+.plans {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.bills {
+  flex-basis: calc(33.33% - 1rem);
+  margin: 10px;
+  width: 130px;
+  height: 160px;
+  text-align: center;
+  transition: all 0.3s ease;
+  padding: 10px;
+  border: 1px solid hsl(231, 11%, 63%);
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  cursor: pointer;
+}
+input[type="radio"] {
+  display: none;
+}
+.bills.selected {
+  background-color: hsl(206, 94%, 87%);
+  border-color: yellow;
+}
+/* input[type="radio"]:checked + label.radio::after {
+  display: block;
+} */
+.bills:hover {
+  border-color: hsl(243, 100%, 62%);
+}
+article {
+  color: hsl(213, 96%, 18%);
+  color: hsl(243, 100%, 62%);
+  color: hsl(228, 100%, 84%);
+  color: hsl(206, 94%, 87%);
+  color: hsl(354, 84%, 57%);
+
+  color: hsl(231, 11%, 63%);
+  color: hsl(229, 24%, 87%);
+  color: hsl(217, 100%, 97%);
+  color: hsl(231, 100%, 99%);
+  color: hsl(0, 0%, 100%);
+}

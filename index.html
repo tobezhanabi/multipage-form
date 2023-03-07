@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Frontend Mentor | Multi-step form</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  </head>
+  <body>
+    <main>
+      <nav>
+        <div class="step">
+          <p class="circle">1</p>
+          <div>
+            <p>Step 1</p>
+            <p>YOUR INFO</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="circle">2</div>
+          <div>
+            <p>Step 2</p>
+            <span>SELECT PLANS</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="circle">3</div>
+          <div>
+            <p>Step 3</p>
+            <span>ADDS-ON</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="circle">4</div>
+
+          <div>
+            <p>Step 4</p>
+            <span>SUMMARY</span>
+          </div>
+        </div>
+      </nav>
+
+      <form id="myform">
+        <fieldset>
+          <h1>Personal info</h1>
+          <p>Please provide your name, email address, and phone number.</p>
+          <label for="name">Name</label>
+          <input
+            type="text"
+            name="name"
+            size="50"
+            id=""
+            placeholder="e.g Stephen"
+            required
+          />
+
+          <label for="email">Email Address </label>
+          <input
+            type="email"
+            name="email"
+            size="50"
+            id=""
+            placeholder="e.g Thank@email.com"
+            required
+          />
+
+          <label for="phone">Phone Number</label>
+          <input
+            type="tel"
+            name="phone"
+            size="50"
+            id=""
+            placeholder="e.g +1 234 567 890"
+            required
+          />
+        </fieldset>
+        <fieldset>
+          <h1>Select your plan</h1>
+          <p>You have the option of monthly or yearly billing.</p>
+          <div class="plans">
+            <label for="arcade">
+              <div class="bills">
+                <input type="radio" name="plan" id="arcade" value="arcade" />
+                <img src="./assets/images/icon-arcade.svg" alt="" />
+                <p>Arcade</p>
+                <p>$9/mo</p>
+              </div>
+            </label>
+            <label for="advanced">
+              <div class="bills">
+                <input
+                  type="radio"
+                  name="plan"
+                  id="advanced"
+                  value="advanced"
+                />
+                <img src="./assets/images/icon-advanced.svg" alt="" />
+                <p>Advanced</p>
+                <p>$12/mo</p>
+              </div>
+            </label>
+            <label for="pro">
+              <div class="bills">
+                <input type="radio" name="plan" id="pro" value="pro" />
+                <img src="./assets/images/icon-pro.svg" alt="" />
+                <p>Pro</p>
+                <p>$15/mo</p>
+              </div>
+            </label>
+          </div>
+        </fieldset>
+        <button id="next">Next Step</button>
+      </form>
+    </main>
+  </body>
+  <script src="./index.js"></script>
+</html>
