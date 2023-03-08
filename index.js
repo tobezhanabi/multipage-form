@@ -30,6 +30,19 @@ function showFieldset(index) {
       fieldsets[i].style.display = "none";
     }
   }
+  if (index === 0) {
+    back.style.display = "none";
+  } else {
+    back.style.display = "inline-block";
+  }
+
+  if (index === fieldsets.length - 1) {
+    next.style.display = "none";
+    submit.style.display = "inline-block";
+  } else {
+    next.style.display = "inline-block";
+    submit.style.display = "none";
+  }
   console.log(index);
 }
 showFieldset(currentFieldSet);
@@ -37,6 +50,7 @@ showFieldset(currentFieldSet);
 function goBack() {
   currentFieldSet--;
   showFieldset(currentFieldSet);
+  console.log(currentFieldSet);
 }
 
 function goNext() {
@@ -47,7 +61,27 @@ function goNext() {
   //     window.alert(form.reportValidity());
   //   }
 }
-console.log(currentFieldSet);
 
-// back.addEventListener("click", goBack);
+back.addEventListener("click", goBack);
 next.addEventListener("click", goNext);
+
+const toggleSwitch = document.querySelector(".switch input");
+const monthlyPlan = document.getElementById("monthly-plan");
+const yearlyPlan = document.getElementById("yearly-plan");
+
+toggleSwitch.addEventListener("change", function () {
+  if (this.checked) {
+    monthlyPlan.style.display = "none";
+    yearlyPlan.style.display = "block";
+  } else {
+    monthlyPlan.style.display = "block";
+    yearlyPlan.style.display = "none";
+  }
+});
+
+// let step1 = document.getElementById("step1");
+// function stepOne() {
+//   showFieldset(0);
+// }
+
+// step1.addEventListener("click", stepOne);

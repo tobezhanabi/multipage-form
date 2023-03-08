@@ -46,7 +46,8 @@ nav {
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
 }
-.step + .circle:hover {
+
+.circle:hover {
   background-color: hsl(206, 94%, 87%);
   color: black;
 }
@@ -102,12 +103,11 @@ input:focus {
   border-color: hsl(243, 100%, 62%) !important;
 }
 
-#next {
+button {
   font-family: "Ubuntu", sans-serif;
   position: absolute;
   padding: 10px 20px;
-  bottom: 15%;
-  right: 8.59%;
+
   background-color: hsl(213, 96%, 18%);
   color: white;
   cursor: pointer;
@@ -118,8 +118,18 @@ input:focus {
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
 }
+#next,
+#submit {
+  bottom: 15%;
+  right: 8.59%;
+}
+#back {
+  left: 44%;
+  bottom: 15%;
+  background-color: hsl(231, 11%, 63%);
+}
 
-.next:hover {
+button:hover {
   opacity: 0.87;
 }
 
@@ -135,7 +145,8 @@ input:focus {
   margin: 10px;
   width: 130px;
   height: 160px;
-  text-align: center;
+
+  text-align: flex-start;
   transition: all 0.3s ease;
   padding: 10px;
   border: 1px solid hsl(231, 11%, 63%);
@@ -146,6 +157,14 @@ input:focus {
   -o-border-radius: 5px;
   cursor: pointer;
 }
+
+#yearly-plan .bills {
+  height: 190px;
+}
+
+#yearly-plan .bills p {
+  font-size: 14px;
+}
 input[type="radio"] {
   display: none;
 }
@@ -153,11 +172,114 @@ input[type="radio"] {
   background-color: hsl(206, 94%, 87%);
   border-color: yellow;
 }
+.price {
+  margin-top: 50px;
+}
+
+.price p {
+  color: hsl(213, 96%, 18%);
+  font-weight: 500;
+  font-size: 18px;
+  font-family: "Ubuntu", sans-serif;
+}
 /* input[type="radio"]:checked + label.radio::after {
   display: block;
 } */
 .bills:hover {
   border-color: hsl(243, 100%, 62%);
+}
+
+/* step 3 */
+.check {
+  justify-content: space-around;
+  align-items: center;
+  display: flex;
+  border: 1px solid hsl(231, 11%, 63%);
+  width: 400px;
+  height: 60px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+/* toggle */
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 24px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  -webkit-transition: 0.4s;
+  -moz-transition: 0.4s;
+  -ms-transition: 0.4s;
+  -o-transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 26px;
+  left: 4px;
+
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  -webkit-transition: 0.4s;
+  -moz-transition: 0.4s;
+  -ms-transition: 0.4s;
+  -o-transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: hsl(213, 96%, 18%);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px hsl(213, 96%, 18%);
+  /* left: calc(100% - 35px); */
+}
+
+input:checked + .slider:before {
+  transform: translate(26px);
+  -webkit-transform: translate(26px);
+  -moz-transform: translate(26px);
+  -ms-transform: translate(26px);
+  -o-transform: translate(26px);
+}
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.toggle {
+  margin: 20px;
+  justify-content: space-around;
+  display: flex;
+}
+
+#yearly-plan {
+  display: none;
 }
 article {
   color: hsl(213, 96%, 18%);
