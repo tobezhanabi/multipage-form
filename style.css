@@ -140,11 +140,12 @@ button:hover {
   align-items: center;
   justify-content: space-between;
 }
-.bills {
+.bills,
+.yearly-bills {
   flex-basis: calc(33.33% - 1rem);
   margin: 10px;
   width: 130px;
-  height: 160px;
+  height: 190px;
 
   text-align: flex-start;
   transition: all 0.3s ease;
@@ -157,11 +158,12 @@ button:hover {
   -o-border-radius: 5px;
   cursor: pointer;
 }
-
-#yearly-plan .bills {
-  height: 190px;
+.yearly {
+  display: none;
 }
-
+.monthly {
+  display: flex;
+}
 #yearly-plan .bills p {
   font-size: 14px;
 }
@@ -169,6 +171,11 @@ input[type="radio"] {
   display: none;
 }
 .bills.selected {
+  background-color: hsl(206, 94%, 87%);
+  border-color: yellow;
+}
+
+.yearly-bills.selected {
   background-color: hsl(206, 94%, 87%);
   border-color: yellow;
 }
@@ -209,7 +216,7 @@ input[type="radio"] {
   position: relative;
   display: inline-block;
   width: 60px;
-  height: 24px;
+  height: 25px;
 }
 
 .switch input {
@@ -235,11 +242,11 @@ input[type="radio"] {
 .slider:before {
   position: absolute;
   content: "";
-  height: 18px;
-  width: 26px;
+  height: 22px;
+  width: 22px;
   left: 4px;
 
-  bottom: 4px;
+  bottom: 2px;
   background-color: white;
   transition: 0.4s;
   -webkit-transition: 0.4s;
@@ -277,10 +284,59 @@ input:checked + .slider:before {
   justify-content: space-around;
   display: flex;
 }
+.year {
+  display: none;
+}
 
 #yearly-plan {
   display: none;
 }
+.bills .discount {
+  font-size: 13px;
+}
+/* step 4 */
+#checkout {
+  background-color: hsl(231, 100%, 99%);
+  width: 400px;
+  height: 250px;
+  margin-top: 20px;
+}
+
+.selected-plan {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.selected-plans p {
+  color: hsl(213, 96%, 18%);
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.selected-plan .plan {
+  color: hsl(213, 96%, 18%);
+}
+
+.addson-text,
+.total {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+  padding: 10px 0;
+}
+
+.addon-price {
+  color: hsl(213, 96%, 18%);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.totalcost {
+  color: hsl(243, 100%, 62%);
+  font-size: 25px;
+  font-weight: 500;
+}
+
 article {
   color: hsl(213, 96%, 18%);
   color: hsl(243, 100%, 62%);

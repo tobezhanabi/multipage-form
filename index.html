@@ -93,45 +93,113 @@
             />
           </fieldset>
         </div>
-        <fieldset id="monthly-plan">
+        <fieldset>
           <h1>Select your plan</h1>
           <p>You have the option of monthly or yearly billing.</p>
+
           <div class="plans">
-            <label for="arcade">
-              <div class="bills">
-                <input type="radio" name="plan" id="arcade" value="arcade" />
-                <img src="./assets/images/icon-arcade.svg" alt="" />
-                <div class="price">
-                  <p>Arcade</p>
-                  <span>$9/mo</span>
-                </div>
-              </div>
-            </label>
-            <label for="advanced">
+            <div class="monthly">
               <div class="bills">
                 <input
                   type="radio"
+                  id="arcade-monthly"
                   name="plan"
-                  id="advanced"
-                  value="advanced"
+                  value="Arcade(month)"
+                />
+                <img src="./assets/images/icon-arcade.svg" alt="" />
+                <label for="arcade-monthly">
+                  <div class="price">
+                    <p>Arcade</p>
+                    <span>$9/mo</span>
+                  </div></label
+                >
+              </div>
+
+              <div class="bills">
+                <input
+                  type="radio"
+                  id="advanced-monthly"
+                  name="plan"
+                  value="Advanced(month)"
                 />
                 <img src="./assets/images/icon-advanced.svg" alt="" />
-                <div class="price">
-                  <p>Advanced</p>
-                  <span>$12/mo</span>
-                </div>
+                <label for="advanced-monthly"
+                  ><div class="price">
+                    <p>Advanced</p>
+                    <span>$12/mo</span>
+                  </div></label
+                >
               </div>
-            </label>
-            <label for="pro">
+
               <div class="bills">
-                <input type="radio" name="plan" id="pro" value="pro" />
+                <input
+                  type="radio"
+                  id="pro-monthly"
+                  name="plan"
+                  value="Pro(month)"
+                />
                 <img src="./assets/images/icon-pro.svg" alt="" />
-                <div class="price">
-                  <p>Pro</p>
-                  <span>$15/mo</span>
-                </div>
+                <label for="pro-monthly">
+                  <div class="price">
+                    <p>Pro</p>
+                    <span>$15/mo</span>
+                  </div></label
+                >
               </div>
-            </label>
+            </div>
+
+            <div class="yearly">
+              <div class="bills">
+                <input
+                  type="radio"
+                  id="arcade-yearly"
+                  name="plan"
+                  value="Arcade(year)"
+                />
+                <img src="./assets/images/icon-arcade.svg" alt="" />
+                <label for="arcade-yearly"
+                  ><div class="price">
+                    <p>Arcade</p>
+                    <span>$90/mo</span>
+                    <p class="discount"></p> 2 Months free</p>
+                  </div></label
+                >
+              </div>
+
+              <div class="bills">
+                <input
+                  type="radio"
+                  id="advanced-yearly"
+                  name="plan"
+                  value="Advanced(year)"
+                />
+                <img src="./assets/images/icon-advanced.svg" alt="" />
+                <label for="advanced-yearly">
+                  <div class="price">
+                    <p>Advanced</p>
+                    <span>$120/mo</span>
+                    <p class="discount" >2 Months free</p>
+                  </div></label
+                >
+              </div>
+
+              <div class="bills">
+                <input
+                  type="radio"
+                  id="pro-yearly"
+                  name="plan"
+                  value="Pro(year)"
+                />
+                <img src="./assets/images/icon-pro.svg" alt="" />
+                <label for="pro-yearly">
+                  <div class="price">
+                    <p>Pro</p>
+                    <span>$150/mo</span>
+                    <p class="discount" >2 Months free</p>
+                  </div></label
+                >
+              </div>
+            </div>
           </div>
 
           <div class="toggle">
@@ -143,99 +211,92 @@
             <p>yearly plan</p>
           </div>
         </fieldset>
-        <fieldset id="yearly-plan">
-          <h1>Select your plan</h1>
-          <p>You have the option of monthly or yearly billing.</p>
-          <div class="plans">
-            <label for="arcade">
-              <div class="bills">
-                <input type="radio" name="plan" id="arcade" value="arcade" />
-                <img src="./assets/images/icon-arcade.svg" alt="" />
-                <div class="price">
-                  <p>Arcade</p>
-                  <span>$9/mo</span>
-                  <p>2 Months free</p>
-                </div>
-              </div>
-            </label>
-            <label for="advanced">
-              <div class="bills">
-                <input
-                  type="radio"
-                  name="plan"
-                  id="advanced"
-                  value="advanced"
-                />
-                <img src="./assets/images/icon-advanced.svg" alt="" />
-                <div class="price">
-                  <p>Advanced</p>
-                  <span>$12/mo</span>
-                  <p>2 Months free</p>
-                </div>
-              </div>
-            </label>
-            <label for="pro">
-              <div class="bills">
-                <input type="radio" name="plan" id="pro" value="pro" />
-                <img src="./assets/images/icon-pro.svg" alt="" />
-                <div class="price">
-                  <p>Pro</p>
-                  <span>$15/mo</span>
-                  <p>2 Months free</p>
-                </div>
-              </div>
-            </label>
-          </div>
 
-          <div class="toggle">
-            <p>monthly plan</p>
-            <label for="toggle" class="switch">
-              <input type="checkbox" id="toggle" class="toggle-input" checked />
-              <span class="slider round"></span>
-            </label>
-            <p>yearly plan</p>
-          </div>
-        </fieldset>
         <fieldset>
           <h1>Pick Add-ons</h1>
           <p>Add-ons help enhance your gaming experience.</p>
-          <label for="online">
-            <div class="check">
-              <input type="checkbox" name="" id="online" />
-              <div>
-                <p>Online service</p>
-                <p>Access to multiplayer games</p>
+          <div class="month">
+            <label for="month-online">
+              <div class="check">
+                <input type="checkbox" name="month-add-on" id="month-online" />
+                <div>
+                  <p>Online service</p>
+                  <p>Access to multiplayer games</p>
+                </div>
+                <p>+$1/mo</p>
               </div>
-              <p>+$1/mo</p>
-            </div>
-          </label>
-          <label for="larger">
-            <div class="check">
-              <input type="checkbox" name="" id="larger" />
-              <div>
-                <p>Larger storage</p>
-                <p>Extra 1TB of cloud save</p>
+            </label>
+            <label for="month-larger">
+              <div class="check">
+                <input type="checkbox" name="month-add-on" id="month-larger" />
+                <div>
+                  <p>Larger storage</p>
+                  <p>Extra 1TB of cloud save</p>
+                </div>
+                <p>+$2/mo</p>
               </div>
-              <p>+$2/mo</p>
-            </div>
-          </label>
-          <label for="customise">
-            <div class="check">
-              <input type="checkbox" name="" id="customise" />
+            </label>
+            <label for="month-customise">
+              <div class="check">
+                <input
+                  type="checkbox"
+                  name="month-add-on"
+                  id="month-customise"
+                />
 
-              <div>
-                <p>Customizable Profile</p>
+                <div>
+                  <p>Customizable Profile</p>
 
-                <p>Custom theme on your profile</p>
+                  <p>Custom theme on your profile</p>
+                </div>
+                <p>+$2/mo</p>
               </div>
-              <p>+$2/mo</p>
-            </div>
-          </label>
+            </label>
+          </div>
+          <div class="year">
+            <label for="year-online">
+              <div class="check">
+                <input type="checkbox" name="year-add-on" id="year-online" />
+                <div>
+                  <p>Online service</p>
+                  <p>Access to multiplayer games</p>
+                </div>
+                <p>+$10/yr</p>
+              </div>
+            </label>
+            <label for="year-larger">
+              <div class="check">
+                <input type="checkbox" name="year-add-on" id="year-larger" />
+                <div>
+                  <p>Larger storage</p>
+                  <p>Extra 1TB of cloud save</p>
+                </div>
+                <p>+$20/yr</p>
+              </div>
+            </label>
+            <label for="year-customise">
+              <div class="check">
+                <input type="checkbox" name="year-add-on" id="year-customise" />
+
+                <div>
+                  <p>Customizable Profile</p>
+
+                  <p>Custom theme on your profile</p>
+                </div>
+                <p>+$20/yr</p>
+              </div>
+            </label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <h1>Finishing Up</h1>
+          <p>Double-check everything looks OK before confirming.</p>
+          <div id="checkout"></div>
         </fieldset>
 
         <button id="next">Next Step</button>
         <button id="back">Go Back</button>
-        <button id="submit">Submit</button>
+        <button id="submit">Confirm</button>
       </form>
     </main>
   </body>

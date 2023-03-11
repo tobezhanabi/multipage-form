@@ -21,6 +21,20 @@ bills.forEach((bill) => {
   });
 });
 
+let yearlyBills = document.querySelectorAll(".yearly-bills");
+
+yearlyBills.forEach((bill) => {
+  const input = bill.querySelector('input[type="radio"]');
+
+  input.addEventListener("click", () => {
+    bills.forEach((bill) => {
+      bill.classList.remove("selected");
+    });
+
+    bill.classList.add("selected");
+  });
+});
+
 function showFieldset(index) {
   const fieldsets = form.getElementsByTagName("fieldset");
   for (i = 0; i < fieldsets.length; i++) {
@@ -65,23 +79,212 @@ function goNext() {
 back.addEventListener("click", goBack);
 next.addEventListener("click", goNext);
 
-const toggleSwitch = document.querySelector(".switch input");
-const monthlyPlan = document.getElementById("monthly-plan");
-const yearlyPlan = document.getElementById("yearly-plan");
-
-toggleSwitch.addEventListener("change", function () {
-  if (this.checked) {
-    monthlyPlan.style.display = "none";
-    yearlyPlan.style.display = "block";
+const toggle = document.getElementById("toggle");
+let toggleChecked;
+toggle.addEventListener("change", function () {
+  const yearlyPrices = document.querySelectorAll(".yearly");
+  const monthlyPrices = document.querySelectorAll(".monthly");
+  toggleChecked = toggle.checked;
+  if (toggleChecked) {
+    yearlyPrices.forEach(function (element) {
+      element.style.display = "flex";
+    });
+    monthlyPrices.forEach(function (element) {
+      element.style.display = "none";
+    });
   } else {
-    monthlyPlan.style.display = "block";
-    yearlyPlan.style.display = "none";
+    yearlyPrices.forEach(function (element) {
+      element.style.display = "none";
+    });
+    monthlyPrices.forEach(function (element) {
+      element.style.display = "flex";
+    });
   }
+  pricePlan(toggleChecked);
 });
 
-// let step1 = document.getElementById("step1");
-// function stepOne() {
-//   showFieldset(0);
-// }
+function pricePlan(toggleChecked) {
+  console.log(toggleChecked);
+  const yearlycheck = document.querySelectorAll(".year");
+  const monthlycheck = document.querySelectorAll(".month");
+  if (toggleChecked) {
+    yearlycheck.forEach((element) => {
+      element.style.display = "block";
+    });
+    monthlycheck.forEach((element) => {
+      element.style.display = "none";
+    });
+  } else {
+    yearlycheck.forEach((element) => {
+      element.style.display = "none";
+    });
+    monthlycheck.forEach((element) => {
+      element.style.display = "block";
+    });
+  }
+}
 
-// step1.addEventListener("click", stepOne);
+// define the value
+
+const plans = [
+  {
+    name: "Arcade",
+    price: {
+      monthly: 9,
+      yearly: 90,
+    },
+    image: "./asset/images/icon-arcade.svg",
+    id: "arcade",
+  },
+  {
+    name: "Advanced",
+    price: {
+      monthly: 12,
+      yearly: 120,
+    },
+    image: "./asset/images/icon-advanced.svg",
+    id: "advanced",
+  },
+  {
+    name: "Pro",
+    price: {
+      monthly: 9,
+      yearly: 90,
+    },
+    image: "./asset/images/icon-pro.svg",
+    id: "pro",
+  },
+];
+
+const addOns = {
+  "month-online": {
+    title: "Online service",
+    price: 1,
+    mo: "/mo",
+  },
+  "month-larger": {
+    title: "Larger storage",
+    price: 2,
+    mo: "/mo",
+  },
+  "month-customise": {
+    title: "Customizable Profile",
+    price: 2,
+    mo: "/mo",
+  },
+  "year-online": {
+    title: "Online service",
+    price: 10,
+  },
+  "year-larger": {
+    title: "Larger storage",
+    price: 20,
+  },
+  "year-customise": {
+    title: "Customizable Profile",
+    price: 20,
+  },
+};
+
+const monthlyCheckboxes = document.querySelectorAll(
+  ".month input[type ='checkbox']"
+);
+const yearlyCheckboxes = document.querySelectorAll(
+  ".year input[type ='checkbox']"
+);
+let totalPrice = 0;
+
+let checkAddons = [];
+
+monthlyCheckboxes.forEach((checkbox) => {
+  checkbox.addEventListener("change", () => {
+    const addOn = addOns[checkbox.id];
+    if (checkbox.checked) {
+      totalPrice += addOn.price;
+      checkAddons.push(addOn.title);
+      // checkAddons.push(addOn.mo);
+      console.log(
+        `Selected add-on: ${addOn.title} - $${addOn.price} ${addOn.mo}`
+      );
+    } else {
+      totalPrice -= addOn.price;
+
+      checkAddons = checkAddons.filter((title) => title !== addOn.title);
+    }
+    console.log("checkAddons:", checkAddons);
+    updateCheckout();
+    console.log("while are you hard");
+    console.log(`${totalPrice}`);
+  });
+});
+
+yearlyCheckboxes.forEach((checkbox) => {
+  console.log(checkbox);
+  checkbox.addEventListener("change", () => {
+    const addOn = addOns[checkbox.id];
+    if (checkbox.checked) {
+      totalPrice += addOn.price;
+      checkAddons.push(addOn.title);
+      // checkAddons.push(addOn.title);
+      console.log(checkAddons);
+    } else {
+      totalPrice -= addOn.price;
+
+      checkAddons = checkAddons.filter((title) => title !== addOn.title);
+    }
+    updateCheckout();
+    console.log("checkAddons:", checkAddons);
+    console.log(`${totalPrice}`);
+    console.log(`${checkAddons.join(",")}`);
+  });
+});
+
+function updateCheckout() {
+  const checkout = document.getElementById("checkout");
+  let addsonText = "";
+
+  const selectedPlan = document.querySelector(
+    'input[name="plan"]:checked'
+  ).value;
+
+  let totalPrice = 0;
+  addsonText += `<div class="selected-plans"><p> ${selectedPlan}</p></div>`;
+  for (let i = 0; i < checkAddons.length; i++) {
+    const addonId = checkAddons[i];
+    const addon =
+      addOns[Object.keys(addOns).find((key) => addOns[key].title === addonId)];
+    totalPrice += addon.price;
+
+    addsonText += `<div class="addson-text"><p> ${addon.title}:</p><p class="addon-price"> +$${addon.price}</p></div>`;
+  }
+
+  totalPrice += getPlanPrice(selectedPlan);
+  console.log(totalPrice);
+  checkout.innerHTML = `
+    <div class="addons">
+      
+      ${addsonText}
+    </div>
+
+    <div class="total"><p>Total</p> <p class="totalcost">$${totalPrice}</p></div>
+    `;
+}
+function getPlanPrice(plan) {
+  if (plan === "Arcade(month)") {
+    return 9;
+  } else if (plan === "Advanced(month)") {
+    return 12;
+  } else if (plan === "Pro(month)") {
+    return 15;
+  } else if (plan === "Arcade(year)") {
+    return 90;
+  } else if (plan === "Advanced(year)") {
+    return 120;
+  } else if (plan === "Pro(year)") {
+    return 150;
+  } else {
+    return 0;
+  }
+}
+
+// {<p>Total price: $${totalPrice}</p>}
