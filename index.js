@@ -1,12 +1,10 @@
 let next = document.getElementById("next");
 let back = document.getElementById("back");
-let submit = document.getElementById("submit");
+const submit = document.getElementById("submit");
 let form = document.getElementById("myform");
 
 let currentFieldSet = 0;
 
-// back.style.display = "none";
-// submit.style.display = "none";
 let bills = document.querySelectorAll(".bills");
 
 bills.forEach((bill) => {
@@ -160,17 +158,14 @@ const addOns = {
   "month-online": {
     title: "Online service",
     price: 1,
-    mo: "/mo",
   },
   "month-larger": {
     title: "Larger storage",
     price: 2,
-    mo: "/mo",
   },
   "month-customise": {
     title: "Customizable Profile",
     price: 2,
-    mo: "/mo",
   },
   "year-online": {
     title: "Online service",
@@ -203,18 +198,14 @@ monthlyCheckboxes.forEach((checkbox) => {
       totalPrice += addOn.price;
       checkAddons.push(addOn.title);
       // checkAddons.push(addOn.mo);
-      console.log(
-        `Selected add-on: ${addOn.title} - $${addOn.price} ${addOn.mo}`
-      );
+      console.log(`Selected add-on: ${addOn.title} - $${addOn.price}`);
     } else {
       totalPrice -= addOn.price;
 
       checkAddons = checkAddons.filter((title) => title !== addOn.title);
     }
-    console.log("checkAddons:", checkAddons);
+    //console.log(`that monthly: ${checkAddons}`);
     updateCheckout();
-    console.log("while are you hard");
-    console.log(`${totalPrice}`);
   });
 });
 
@@ -225,17 +216,15 @@ yearlyCheckboxes.forEach((checkbox) => {
     if (checkbox.checked) {
       totalPrice += addOn.price;
       checkAddons.push(addOn.title);
-      // checkAddons.push(addOn.title);
-      console.log(checkAddons);
+
+      console.log(`Selected add-on: ${addOn.title} - $${addOn.price}`);
     } else {
       totalPrice -= addOn.price;
 
       checkAddons = checkAddons.filter((title) => title !== addOn.title);
     }
+    console.log(`that: ${checkAddons}`);
     updateCheckout();
-    console.log("checkAddons:", checkAddons);
-    console.log(`${totalPrice}`);
-    console.log(`${checkAddons.join(",")}`);
   });
 });
 
@@ -247,23 +236,49 @@ function updateCheckout() {
     'input[name="plan"]:checked'
   ).value;
 
-  let totalPrice = 0;
-  addsonText += `<div class="selected-plans"><p> ${selectedPlan}</p></div>`;
-  for (let i = 0; i < checkAddons.length; i++) {
-    const addonId = checkAddons[i];
-    const addon =
-      addOns[Object.keys(addOns).find((key) => addOns[key].title === addonId)];
-    totalPrice += addon.price;
+  let addsonTotalPrice = 0;
+  let planType = "";
 
-    addsonText += `<div class="addson-text"><p> ${addon.title}:</p><p class="addon-price"> +$${addon.price}</p></div>`;
+  if (selectedPlan.includes("month")) {
+    planType = "month";
+  } else if (selectedPlan.includes("year")) {
+    planType = "year";
+  }
+  // console.log(`Selected add-on: ${addOn.title} - $${addOn.price}`);
+  let selectedAddOns = [];
+  if (planType === "month") {
+    monthlyCheckboxes.forEach((checkbox) => {
+      if (checkbox.checked) {
+        const addOn = addOns[checkbox.id];
+
+        selectedAddOns.push(addOn);
+      }
+    });
+  } else if (planType === "year") {
+    yearlyCheckboxes.forEach((checkbox) => {
+      if (checkbox.checked) {
+        const addOn = addOns[checkbox.id];
+
+        selectedAddOns.push(addOn);
+        console.log(`th44is:${addOn.price}`);
+      }
+    });
+  }
+  addsonText += `<div class="selected-plans"><p> ${selectedPlan}</p></div>`;
+
+  for (let i = 0; i < selectedAddOns.length; i++) {
+    const addon = selectedAddOns[i];
+    addsonTotalPrice += addon.price;
+    addsonText += `<div class="addson-text"><p> ${addon.title}</p><p class="addon-price"> +$${addon.price}</p></div>`;
   }
 
-  totalPrice += getPlanPrice(selectedPlan);
-  console.log(totalPrice);
+  const planPrice = getPlanPrice(selectedPlan);
+  totalPrice = planPrice + addsonTotalPrice;
   checkout.innerHTML = `
     <div class="addons">
       
       ${addsonText}
+     
     </div>
 
     <div class="total"><p>Total</p> <p class="totalcost">$${totalPrice}</p></div>
@@ -287,4 +302,13 @@ function getPlanPrice(plan) {
   }
 }
 
-// {<p>Total price: $${totalPrice}</p>}
+const step4 = document.getElementById("step4");
+
+submit.addEventListener("click", () => {
+  step4.style.display = "none";
+
+  const thankYousection = document.getElementById("thank-you");
+  thankYousection.style.display = "block";
+  submit.style.display = "none";
+  back.style.display = "none";
+});

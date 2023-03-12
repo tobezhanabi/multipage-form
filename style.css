@@ -211,7 +211,22 @@ input[type="radio"] {
   -o-border-radius: 5px;
 }
 /* toggle */
-
+.toggle {
+  margin: 20px;
+  justify-content: space-around;
+  display: flex;
+  background-color: hsl(217, 100%, 97%);
+  padding: 12px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+.toggle p {
+  color: hsl(213, 96%, 18%);
+  font-weight: 500;
+}
 .switch {
   position: relative;
   display: inline-block;
@@ -228,7 +243,7 @@ input[type="radio"] {
   position: absolute;
   cursor: pointer;
   top: 0;
-  right: 0;
+  right: 0px;
   left: 0;
   bottom: 0;
   background-color: #ccc;
@@ -242,11 +257,11 @@ input[type="radio"] {
 .slider:before {
   position: absolute;
   content: "";
-  height: 22px;
-  width: 22px;
-  left: 4px;
+  height: 20px;
+  width: 20px;
+  left: 12px;
 
-  bottom: 2px;
+  bottom: 3px;
   background-color: white;
   transition: 0.4s;
   -webkit-transition: 0.4s;
@@ -279,11 +294,6 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
-.toggle {
-  margin: 20px;
-  justify-content: space-around;
-  display: flex;
-}
 .year {
   display: none;
 }
@@ -337,6 +347,26 @@ input:checked + .slider:before {
   font-weight: 500;
 }
 
+/* thank */
+
+#thank-you {
+  position: relative;
+  margin: 50px;
+  left: 2%;
+  top: 20%;
+}
+
+#thank-you h1 {
+  color: hsl(213, 96%, 18%);
+  margin: 20px 200px;
+}
+
+#thank-you img {
+  margin: 0px 230px;
+}
+#thank-you p {
+  color: hsl(231, 11%, 63%);
+}
 article {
   color: hsl(213, 96%, 18%);
   color: hsl(243, 100%, 62%);

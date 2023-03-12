@@ -160,8 +160,8 @@
                 <label for="arcade-yearly"
                   ><div class="price">
                     <p>Arcade</p>
-                    <span>$90/mo</span>
-                    <p class="discount"></p> 2 Months free</p>
+                    <span>$90/yr</span>
+                    <p class="discount">2 Months free</p>
                   </div></label
                 >
               </div>
@@ -177,8 +177,8 @@
                 <label for="advanced-yearly">
                   <div class="price">
                     <p>Advanced</p>
-                    <span>$120/mo</span>
-                    <p class="discount" >2 Months free</p>
+                    <span>$120/yr</span>
+                    <p class="discount">2 Months free</p>
                   </div></label
                 >
               </div>
@@ -194,8 +194,8 @@
                 <label for="pro-yearly">
                   <div class="price">
                     <p>Pro</p>
-                    <span>$150/mo</span>
-                    <p class="discount" >2 Months free</p>
+                    <span>$150/yr</span>
+                    <p class="discount">2 Months free</p>
                   </div></label
                 >
               </div>
@@ -203,12 +203,12 @@
           </div>
 
           <div class="toggle">
-            <p>monthly plan</p>
+            <p>Monthly</p>
             <label for="toggle" class="switch">
               <input type="checkbox" id="toggle" class="toggle-input" />
               <span class="slider round"></span>
             </label>
-            <p>yearly plan</p>
+            <p>Yearly</p>
           </div>
         </fieldset>
 
@@ -288,7 +288,7 @@
             </label>
           </div>
         </fieldset>
-        <fieldset>
+        <fieldset id="step4">
           <h1>Finishing Up</h1>
           <p>Double-check everything looks OK before confirming.</p>
           <div id="checkout"></div>
@@ -298,6 +298,15 @@
         <button id="back">Go Back</button>
         <button id="submit">Confirm</button>
       </form>
+      <div id="thank-you" style="display: none">
+        <img src="./assets/images/icon-thank-you.svg" alt="" />
+        <h1>Thank You</h1>
+        <p>
+          Thank you! Thanks for confirming your subscription! We hope you have
+          fun using our platform. If you ever need support, please feel free to
+          email us at support@loremgaming.com.
+        </p>
+      </div>
     </main>
   </body>
   <script src="./index.js"></script>
