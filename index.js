@@ -244,7 +244,7 @@ function updateCheckout() {
   } else if (selectedPlan.includes("year")) {
     planType = "year";
   }
-  // console.log(`Selected add-on: ${addOn.title} - $${addOn.price}`);
+  //console.log(`Selected add-on: ${addOn.title} - $${addOn.price}`);
   let selectedAddOns = [];
   if (planType === "month") {
     monthlyCheckboxes.forEach((checkbox) => {

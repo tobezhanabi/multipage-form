@@ -25,288 +25,303 @@
   <body>
     <main>
       <nav>
-        <div class="step" href="#step1">
-          <p class="circle">1</p>
-          <div>
-            <p>Step 1</p>
-            <p>YOUR INFO</p>
+        <div class="mobile-step">
+          <div class="step" href="#step1">
+            <div class="circle">1</div>
+            <div>
+              <p>Step 1</p>
+              <p>YOUR INFO</p>
+            </div>
           </div>
-        </div>
 
-        <div class="step">
-          <div class="circle">2</div>
-          <div>
-            <p>Step 2</p>
-            <span>SELECT PLANS</span>
+          <div class="step">
+            <div class="circle">2</div>
+            <div>
+              <p>Step 2</p>
+              <span>SELECT PLANS</span>
+            </div>
           </div>
-        </div>
-        <div class="step">
-          <div class="circle">3</div>
-          <div>
-            <p>Step 3</p>
-            <span>ADDS-ON</span>
+          <div class="step">
+            <div class="circle">3</div>
+            <div>
+              <p>Step 3</p>
+              <span>ADDS-ON</span>
+            </div>
           </div>
-        </div>
-        <div class="step">
-          <div class="circle">4</div>
+          <div class="step">
+            <div class="circle">4</div>
 
-          <div>
-            <p>Step 4</p>
-            <span>SUMMARY</span>
+            <div>
+              <p>Step 4</p>
+              <span>SUMMARY</span>
+            </div>
           </div>
         </div>
       </nav>
+      <section>
+        <form id="myform">
+          <div class="form-body">
+            <fieldset id="step1">
+              <h1>Personal info</h1>
+              <p>Please provide your name, email address, and phone number.</p>
+              <label for="name">Name</label>
+              <input
+                type="text"
+                name="name"
+                style="width: 100%; max-width: 425px"
+                id=""
+                placeholder="e.g Stephen"
+                required
+              />
 
-      <form id="myform">
-        <div>
-          <fieldset id="step1">
-            <h1>Personal info</h1>
-            <p>Please provide your name, email address, and phone number.</p>
-            <label for="name">Name</label>
-            <input
-              type="text"
-              name="name"
-              size="50"
-              id=""
-              placeholder="e.g Stephen"
-              required
-            />
+              <label for="email">Email Address </label>
+              <input
+                type="email"
+                name="email"
+                style="width: 100%; max-width: 425px"
+                id=""
+                placeholder="e.g Thank@email.com"
+                required
+              />
 
-            <label for="email">Email Address </label>
-            <input
-              type="email"
-              name="email"
-              size="50"
-              id=""
-              placeholder="e.g Thank@email.com"
-              required
-            />
+              <label for="phone">Phone Number</label>
+              <input
+                type="tel"
+                name="phone"
+                style="width: 100%; max-width: 425px"
+                id=""
+                placeholder="e.g +1 234 567 890"
+                required
+              />
+            </fieldset>
+          </div>
+          <fieldset>
+            <h1>Select your plan</h1>
+            <p>You have the option of monthly or yearly billing.</p>
 
-            <label for="phone">Phone Number</label>
-            <input
-              type="tel"
-              name="phone"
-              size="50"
-              id=""
-              placeholder="e.g +1 234 567 890"
-              required
-            />
+            <div class="plans">
+              <div class="monthly">
+                <div class="bills">
+                  <input
+                    type="radio"
+                    id="arcade-monthly"
+                    name="plan"
+                    value="Arcade(month)"
+                  />
+                  <img src="./assets/images/icon-arcade.svg" alt="" />
+                  <label for="arcade-monthly">
+                    <div class="price">
+                      <p>Arcade</p>
+                      <span>$9/mo</span>
+                    </div></label
+                  >
+                </div>
+
+                <div class="bills">
+                  <input
+                    type="radio"
+                    id="advanced-monthly"
+                    name="plan"
+                    value="Advanced(month)"
+                  />
+                  <img src="./assets/images/icon-advanced.svg" alt="" />
+                  <label for="advanced-monthly"
+                    ><div class="price">
+                      <p>Advanced</p>
+                      <span>$12/mo</span>
+                    </div></label
+                  >
+                </div>
+
+                <div class="bills">
+                  <input
+                    type="radio"
+                    id="pro-monthly"
+                    name="plan"
+                    value="Pro(month)"
+                  />
+                  <img src="./assets/images/icon-pro.svg" alt="" />
+                  <label for="pro-monthly">
+                    <div class="price">
+                      <p>Pro</p>
+                      <span>$15/mo</span>
+                    </div></label
+                  >
+                </div>
+              </div>
+
+              <div class="yearly">
+                <div class="bills">
+                  <input
+                    type="radio"
+                    id="arcade-yearly"
+                    name="plan"
+                    value="Arcade(year)"
+                  />
+                  <img src="./assets/images/icon-arcade.svg" alt="" />
+                  <label for="arcade-yearly"
+                    ><div class="price">
+                      <p>Arcade</p>
+                      <span>$90/yr</span>
+                      <p class="discount">2 Months free</p>
+                    </div></label
+                  >
+                </div>
+
+                <div class="bills">
+                  <input
+                    type="radio"
+                    id="advanced-yearly"
+                    name="plan"
+                    value="Advanced(year)"
+                  />
+                  <img src="./assets/images/icon-advanced.svg" alt="" />
+                  <label for="advanced-yearly">
+                    <div class="price">
+                      <p>Advanced</p>
+                      <span>$120/yr</span>
+                      <p class="discount">2 Months free</p>
+                    </div></label
+                  >
+                </div>
+
+                <div class="bills">
+                  <input
+                    type="radio"
+                    id="pro-yearly"
+                    name="plan"
+                    value="Pro(year)"
+                  />
+                  <img src="./assets/images/icon-pro.svg" alt="" />
+                  <label for="pro-yearly">
+                    <div class="price">
+                      <p>Pro</p>
+                      <span>$150/yr</span>
+                      <p class="discount">2 Months free</p>
+                    </div></label
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="toggle">
+              <p>Monthly</p>
+              <label for="toggle" class="switch">
+                <input type="checkbox" id="toggle" class="toggle-input" />
+                <span class="slider round"></span>
+              </label>
+              <p>Yearly</p>
+            </div>
           </fieldset>
-        </div>
-        <fieldset>
-          <h1>Select your plan</h1>
-          <p>You have the option of monthly or yearly billing.</p>
 
-          <div class="plans">
-            <div class="monthly">
-              <div class="bills">
-                <input
-                  type="radio"
-                  id="arcade-monthly"
-                  name="plan"
-                  value="Arcade(month)"
-                />
-                <img src="./assets/images/icon-arcade.svg" alt="" />
-                <label for="arcade-monthly">
-                  <div class="price">
-                    <p>Arcade</p>
-                    <span>$9/mo</span>
-                  </div></label
-                >
-              </div>
+          <fieldset>
+            <h1>Pick Add-ons</h1>
+            <p>Add-ons help enhance your gaming experience.</p>
+            <div class="month">
+              <label for="month-online">
+                <div class="check">
+                  <input
+                    type="checkbox"
+                    name="month-add-on"
+                    id="month-online"
+                  />
+                  <div>
+                    <p>Online service</p>
+                    <p>Access to multiplayer games</p>
+                  </div>
+                  <p>+$1/mo</p>
+                </div>
+              </label>
+              <label for="month-larger">
+                <div class="check">
+                  <input
+                    type="checkbox"
+                    name="month-add-on"
+                    id="month-larger"
+                  />
+                  <div>
+                    <p>Larger storage</p>
+                    <p>Extra 1TB of cloud save</p>
+                  </div>
+                  <p>+$2/mo</p>
+                </div>
+              </label>
+              <label for="month-customise">
+                <div class="check">
+                  <input
+                    type="checkbox"
+                    name="month-add-on"
+                    id="month-customise"
+                  />
 
-              <div class="bills">
-                <input
-                  type="radio"
-                  id="advanced-monthly"
-                  name="plan"
-                  value="Advanced(month)"
-                />
-                <img src="./assets/images/icon-advanced.svg" alt="" />
-                <label for="advanced-monthly"
-                  ><div class="price">
-                    <p>Advanced</p>
-                    <span>$12/mo</span>
-                  </div></label
-                >
-              </div>
+                  <div>
+                    <p>Customizable Profile</p>
 
-              <div class="bills">
-                <input
-                  type="radio"
-                  id="pro-monthly"
-                  name="plan"
-                  value="Pro(month)"
-                />
-                <img src="./assets/images/icon-pro.svg" alt="" />
-                <label for="pro-monthly">
-                  <div class="price">
-                    <p>Pro</p>
-                    <span>$15/mo</span>
-                  </div></label
-                >
-              </div>
+                    <p>Custom theme on your profile</p>
+                  </div>
+                  <p>+$2/mo</p>
+                </div>
+              </label>
             </div>
+            <div class="year">
+              <label for="year-online">
+                <div class="check">
+                  <input type="checkbox" name="year-add-on" id="year-online" />
+                  <div>
+                    <p>Online service</p>
+                    <p>Access to multiplayer games</p>
+                  </div>
+                  <p>+$10/yr</p>
+                </div>
+              </label>
+              <label for="year-larger">
+                <div class="check">
+                  <input type="checkbox" name="year-add-on" id="year-larger" />
+                  <div>
+                    <p>Larger storage</p>
+                    <p>Extra 1TB of cloud save</p>
+                  </div>
+                  <p>+$20/yr</p>
+                </div>
+              </label>
+              <label for="year-customise">
+                <div class="check">
+                  <input
+                    type="checkbox"
+                    name="year-add-on"
+                    id="year-customise"
+                  />
 
-            <div class="yearly">
-              <div class="bills">
-                <input
-                  type="radio"
-                  id="arcade-yearly"
-                  name="plan"
-                  value="Arcade(year)"
-                />
-                <img src="./assets/images/icon-arcade.svg" alt="" />
-                <label for="arcade-yearly"
-                  ><div class="price">
-                    <p>Arcade</p>
-                    <span>$90/yr</span>
-                    <p class="discount">2 Months free</p>
-                  </div></label
-                >
-              </div>
+                  <div>
+                    <p>Customizable Profile</p>
 
-              <div class="bills">
-                <input
-                  type="radio"
-                  id="advanced-yearly"
-                  name="plan"
-                  value="Advanced(year)"
-                />
-                <img src="./assets/images/icon-advanced.svg" alt="" />
-                <label for="advanced-yearly">
-                  <div class="price">
-                    <p>Advanced</p>
-                    <span>$120/yr</span>
-                    <p class="discount">2 Months free</p>
-                  </div></label
-                >
-              </div>
-
-              <div class="bills">
-                <input
-                  type="radio"
-                  id="pro-yearly"
-                  name="plan"
-                  value="Pro(year)"
-                />
-                <img src="./assets/images/icon-pro.svg" alt="" />
-                <label for="pro-yearly">
-                  <div class="price">
-                    <p>Pro</p>
-                    <span>$150/yr</span>
-                    <p class="discount">2 Months free</p>
-                  </div></label
-                >
-              </div>
+                    <p>Custom theme on your profile</p>
+                  </div>
+                  <p>+$20/yr</p>
+                </div>
+              </label>
             </div>
-          </div>
+          </fieldset>
+          <fieldset id="step4">
+            <h1>Finishing Up</h1>
+            <p>Double-check everything looks OK before confirming.</p>
+            <div id="checkout"></div>
+          </fieldset>
 
-          <div class="toggle">
-            <p>Monthly</p>
-            <label for="toggle" class="switch">
-              <input type="checkbox" id="toggle" class="toggle-input" />
-              <span class="slider round"></span>
-            </label>
-            <p>Yearly</p>
-          </div>
+          <button id="next">Next Step</button>
+          <button id="back">Go Back</button>
+          <button id="submit">Confirm</button>
+        </form>
+        <fieldset id="thank-you" style="display: none">
+          <img src="./assets/images/icon-thank-you.svg" alt="" />
+          <h1>Thank You</h1>
+          <p>
+            Thank you! Thanks for confirming your subscription! We hope you have
+            fun using our platform. If you ever need support, please feel free
+            to email us at support@loremgaming.com.
+          </p>
         </fieldset>
-
-        <fieldset>
-          <h1>Pick Add-ons</h1>
-          <p>Add-ons help enhance your gaming experience.</p>
-          <div class="month">
-            <label for="month-online">
-              <div class="check">
-                <input type="checkbox" name="month-add-on" id="month-online" />
-                <div>
-                  <p>Online service</p>
-                  <p>Access to multiplayer games</p>
-                </div>
-                <p>+$1/mo</p>
-              </div>
-            </label>
-            <label for="month-larger">
-              <div class="check">
-                <input type="checkbox" name="month-add-on" id="month-larger" />
-                <div>
-                  <p>Larger storage</p>
-                  <p>Extra 1TB of cloud save</p>
-                </div>
-                <p>+$2/mo</p>
-              </div>
-            </label>
-            <label for="month-customise">
-              <div class="check">
-                <input
-                  type="checkbox"
-                  name="month-add-on"
-                  id="month-customise"
-                />
-
-                <div>
-                  <p>Customizable Profile</p>
-
-                  <p>Custom theme on your profile</p>
-                </div>
-                <p>+$2/mo</p>
-              </div>
-            </label>
-          </div>
-          <div class="year">
-            <label for="year-online">
-              <div class="check">
-                <input type="checkbox" name="year-add-on" id="year-online" />
-                <div>
-                  <p>Online service</p>
-                  <p>Access to multiplayer games</p>
-                </div>
-                <p>+$10/yr</p>
-              </div>
-            </label>
-            <label for="year-larger">
-              <div class="check">
-                <input type="checkbox" name="year-add-on" id="year-larger" />
-                <div>
-                  <p>Larger storage</p>
-                  <p>Extra 1TB of cloud save</p>
-                </div>
-                <p>+$20/yr</p>
-              </div>
-            </label>
-            <label for="year-customise">
-              <div class="check">
-                <input type="checkbox" name="year-add-on" id="year-customise" />
-
-                <div>
-                  <p>Customizable Profile</p>
-
-                  <p>Custom theme on your profile</p>
-                </div>
-                <p>+$20/yr</p>
-              </div>
-            </label>
-          </div>
-        </fieldset>
-        <fieldset id="step4">
-          <h1>Finishing Up</h1>
-          <p>Double-check everything looks OK before confirming.</p>
-          <div id="checkout"></div>
-        </fieldset>
-
-        <button id="next">Next Step</button>
-        <button id="back">Go Back</button>
-        <button id="submit">Confirm</button>
-      </form>
-      <div id="thank-you" style="display: none">
-        <img src="./assets/images/icon-thank-you.svg" alt="" />
-        <h1>Thank You</h1>
-        <p>
-          Thank you! Thanks for confirming your subscription! We hope you have
-          fun using our platform. If you ever need support, please feel free to
-          email us at support@loremgaming.com.
-        </p>
-      </div>
+      </section>
     </main>
   </body>
   <script src="./index.js"></script>
