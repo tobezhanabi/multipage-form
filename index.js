@@ -85,20 +85,44 @@ toggle.addEventListener("change", function () {
   toggleChecked = toggle.checked;
   if (toggleChecked) {
     yearlyPrices.forEach(function (element) {
-      element.style.display = "flex";
+      element.style.display = window.innerWidth >= 375 ? "flex" : "block";
     });
     monthlyPrices.forEach(function (element) {
-      element.style.display = "none";
+      element.style.display = window.innerWidth >= 375 ? "none" : "none";
     });
   } else {
     yearlyPrices.forEach(function (element) {
-      element.style.display = "none";
+      element.style.display = window.innerWidth >= 375 ? "none" : "none";
     });
     monthlyPrices.forEach(function (element) {
-      element.style.display = "flex";
+      element.style.display = window.innerWidth >= 375 ? "flex" : "block";
     });
   }
   pricePlan(toggleChecked);
+});
+
+//event listener for the scren
+
+window.addEventListener("resize", function () {
+  const width = window.innerWidth;
+  const yearlyPrices = document.querySelectorAll(".yearly");
+  const monthlyPrices = document.querySelectorAll(".monthly");
+  toggleChecked = toggle.checked;
+  if (toggleChecked) {
+    yearlyPrices.forEach(function (element) {
+      element.style.display = window.innerWidth >= 375 ? "block" : "block";
+    });
+    monthlyPrices.forEach(function (element) {
+      element.style.display = window.innerWidth >= 375 ? "none" : "none";
+    });
+  } else {
+    yearlyPrices.forEach(function (element) {
+      element.style.display = window.innerWidth >= 375 ? "none" : "none";
+    });
+    monthlyPrices.forEach(function (element) {
+      element.style.display = window.innerWidth >= 375 ? "block" : "block";
+    });
+  }
 });
 
 function pricePlan(toggleChecked) {
@@ -244,7 +268,7 @@ function updateCheckout() {
   } else if (selectedPlan.includes("year")) {
     planType = "year";
   }
-  //console.log(`Selected add-on: ${addOn.title} - $${addOn.price}`);
+
   let selectedAddOns = [];
   if (planType === "month") {
     monthlyCheckboxes.forEach((checkbox) => {
@@ -311,4 +335,40 @@ submit.addEventListener("click", () => {
   thankYousection.style.display = "block";
   submit.style.display = "none";
   back.style.display = "none";
+});
+
+const steps = document.querySelectorAll(".circle");
+const nextButton = document.getElementById("next");
+const prevButton = document.getElementById("back");
+
+function setActiveStep(activeIndex) {
+  steps.forEach((step, index) => {
+    if (index === activeIndex) {
+      step.classList.add("active");
+    } else {
+      step.classList.remove("active");
+    }
+  });
+}
+
+let activeIndex = 0;
+
+setActiveStep(activeIndex);
+
+nextButton.addEventListener("click", () => {
+  activeIndex++;
+  if (activeIndex >= steps.length) {
+    activeIndex = steps.length - 1;
+  }
+  console.log(`this is the ${activeIndex}`);
+  console.log(`this is the step ${steps.length}`);
+  setActiveStep(activeIndex);
+});
+prevButton.addEventListener("click", () => {
+  activeIndex--;
+  if (activeIndex < 0) {
+    activeIndex = 0;
+  }
+  console.log(`this is the ${activeIndex}`);
+  setActiveStep(activeIndex);
 });
