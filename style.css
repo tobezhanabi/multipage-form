@@ -346,14 +346,49 @@ fieldset:active ~ .mobile-step .step:nth-of-type(n + 2) .circle {
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
 }
-
-/* .check input[type="checkbox"]:checked + div:before {
-  background-color: purple;
-  border-color: purple;
+.check:hover {
+  border-color: hsl(243, 100%, 62%);
 }
-.check input[type="checkbox"]:checked + div::after {
-  border-color: black;
-} */
+
+input[type="checkbox"] {
+  appearance: none;
+  margin: 0;
+  height: 15px;
+  width: 15px;
+  border: 1.2px solid hsl(243, 100%, 62%);
+  /*chengethedisplaybehaviourtogrid*/
+  display: grid;
+  place-content: center;
+  border-radius: 30%;
+  -webkit-border-radius: 30%;
+  -moz-border-radius: 30%;
+  -ms-border-radius: 30%;
+  -o-border-radius: 30%;
+}
+
+input[type="checkbox"]::before {
+  content: "";
+  height: 0.85em;
+  width: 0.85em;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 20em 20em blue;
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+  -webkit-transition: 120ms transform ease-in-out;
+  -moz-transition: 120ms transform ease-in-out;
+  -ms-transition: 120ms transform ease-in-out;
+  -o-transition: 120ms transform ease-in-out;
+}
+input[type="checkbox"]:checked::before {
+  transform: scale(1.5);
+  -webkit-transform: scale(1.5);
+  -moz-transform: scale(1.5);
+  -ms-transform: scale(1.5);
+  -o-transform: scale(1.5);
+}
 
 /* toggle */
 .toggle {
@@ -452,7 +487,7 @@ input:checked + .slider:before {
 @media (max-width: 375px) {
   .toggle {
     margin: 5px;
-
+    display: flex;
     padding: 5px;
   }
   .toggle p {
@@ -537,6 +572,7 @@ input:checked + .slider:before {
 }
 #thank-you p {
   color: hsl(231, 11%, 63%);
+  padding: 0 100px;
 }
 @media (max-width: 375px) {
   #thank-you {
